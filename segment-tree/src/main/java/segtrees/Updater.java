@@ -17,15 +17,15 @@ public interface Updater<T, U> {
         };
     }
 
-    static Updater<Long, Long> assignMin() {
+    static Updater<Long, Long> assignLongs() {
         return new Updater<>() {
             public Long apply(Long val, Long upd, int size) {
-                return upd * size;
+                return upd ;
             }
             public Long merge(Long oldUpd, Long newUpd) {
                 return newUpd;
             }
-            public Long identity() { return null; }
+            public Long identity() { return Long.MAX_VALUE; }
         };
     }
 }
